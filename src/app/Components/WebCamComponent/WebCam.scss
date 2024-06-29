@@ -1,0 +1,216 @@
+.webcam-container {
+    position: relative;
+    min-height: 251px;
+
+    .custom-webcam {
+        width: 100%;
+        height: 90vh;
+        border-radius: 0px 0px 30px 30px;
+        object-fit: cover;
+        filter: brightness(0.9);
+    }
+
+    img:not(.camera) {
+        object-fit: contain !important;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 10px;
+        top: 40px;
+        border-radius: 50%;
+        font-family: system-ui;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-weight: 600;
+        font-size: medium;
+        background: #767676;
+        color: #fff;
+        border: none;
+        box-shadow: 0 0 4px #aaa;
+    }
+
+    .btn-container {
+        position: absolute;
+        bottom: 0;
+        user-select: none;
+
+        // background: #5559;
+        width: 100%;
+        padding: 20px 0;
+        border-radius: 30px 30px 0px 0px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+
+        button {
+            color: #fff;
+            padding: 0;
+            width: 60px;
+            height: 60px;
+            font-size: 26px;
+            border-radius: 50%;
+            line-height: 0;
+            box-shadow: 1px 1px 4px #4a4a4a;
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+
+            svg {
+                fill: #9b9b9b;
+            }
+
+            &.browse-btn {
+                background: #333;
+                width: 40px;
+                height: 40px;
+                outline: 1px solid #9e9e9e;
+                outline-offset: 0;
+                font-size: 16px;
+
+                svg {
+                    fill: #fff;
+                }
+            }
+
+            &.capture-btn {
+                margin-right: 80px;
+            }
+            &:not(.capture-btn) {
+                font-size: 12px;
+                color: #444444;
+            }
+        }
+    }
+
+    .layer {
+        position: absolute;
+        width: 70vw;
+        height: 70vw;
+        border: 2px dashed white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 40px;
+        border-inline-width: 0px;
+    }
+
+    .browse-btn {
+        position: relative;
+        .file-input {
+            appearance: none;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            visibility: hidden;
+    
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: #000;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: 50%;
+                opacity: 1;
+                visibility: visible;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            fill: #fff;
+            pointer-events: none;
+        }
+    }
+    
+    /* Overlay styling */
+    .overlay {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // width: calc(100% - 0px);
+        // height: 90%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // pointer-events: none;
+        // background: rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Scanner frame styling */
+    .scanner-frame {
+        position: relative;
+        width: 80%;
+        height: 80%;
+        border: 2px solid #dfdfdf;
+        pointer-events: none;
+        box-shadow: 0 0 2px #b5b5b5;
+    }
+
+    /* Scanner line animation */
+    .scanner-frame::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #dfdfdf;
+        animation: scan 2s linear infinite;
+    }
+
+    /* Styles for the rotate button */
+    .switch-button {
+        position: absolute;
+        bottom: 44px;
+        right: -8px;
+        padding: 0;
+        font-size: 30px;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        transition: background-color 0.3s;
+        background: #e6589c;
+    }
+  
+  .switch-button:hover {
+    background-color: #d14f8d;
+  }
+  
+  .switch-button:active {
+    animation: rotate 700ms ease forwards;
+  }
+}
+
+
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,110 @@
+.webcam-container {
+    position: relative;
+    min-height: 251px;
+
+    .custom-webcam {
+        // width: 100%;
+        // height: auto;
+        width: 100vw;
+        height: 100vh;
+        margin: 30px 0;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 10px;
+        top: 40px;
+        border-radius: 50%;
+        font-family: system-ui;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-weight: 600;
+        font-size: medium;
+        background: #767676;
+        color: #fff;
+        border: none;
+        box-shadow: 0 0 4px #aaa;
+    }
+
+    /* Overlay styling */
+    .overlay {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: calc(100% - 0px);
+        height: calc(100% - 90px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Scanner frame styling */
+    .scanner-frame {
+        position: relative;
+        width: 80%;
+        height: 80%;
+        border: 2px solid #dfdfdf;
+        pointer-events: none;
+        box-shadow: 0 0 2px #b5b5b5;
+    }
+
+    /* Scanner line animation */
+    .scanner-frame::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #dfdfdf;
+        animation: scan 2s linear infinite;
+    }
+
+    /* Styles for the rotate button */
+    .switch-button {
+        position: absolute;
+        bottom: 44px;
+        right: -8px;
+        padding: 0;
+        font-size: 30px;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        transition: background-color 0.3s;
+        background: #e6589c;
+    }
+  
+  .switch-button:hover {
+    background-color: #d14f8d;
+  }
+  
+  .switch-button:active {
+    animation: rotate 700ms ease forwards;
+  }
+}
+
+
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

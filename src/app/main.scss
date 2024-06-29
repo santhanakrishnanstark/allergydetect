@@ -1,0 +1,163 @@
+body {
+  overflow: hidden;
+  margin: 0;
+
+  &.register,
+  &.user-profile {
+    overflow-y: scroll;
+  }
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h3, h4 {
+  margin: 0;
+}
+
+
+a, button {
+       
+  padding: 6px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none;
+
+  &.primary {
+      background: linear-gradient(to right, #6285ff, #bd63f9, #e85695);
+      color: #fff;
+
+      &:disabled {
+        filter: opacity(0.5);
+        cursor: not-allowed;
+      }
+  }
+
+  &.secondary {
+      background-color: transparent;
+      border: 1px solid #e85695;
+      color: #ed5f8f;
+  }
+
+  &.link {
+    padding: 0;
+    background: no-repeat;
+    margin: 0 4px;
+    color: #673AB7;
+    font-weight: 600;
+  }
+}
+
+input {
+  box-sizing: border-box;
+}
+
+.ring {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // transform: scale(0.2);
+
+  margin: 30px 0;
+}
+
+/************************** Ring Animation CSS Start */
+
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #000;
+  transition: 0.5s;
+}
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: animate 2s linear infinite;
+}
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 4s linear infinite;
+}
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate3 3s linear infinite;
+}
+.ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+}
+@keyframes animate {
+  0% {
+      transform: rotate(0deg);
+      border: 3px solid #c564fb;
+  }
+  100% {
+      border: 3px solid #c564fb;
+      filter: drop-shadow(0 0 20px #c564fb);
+      transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+    border: 3px solid #2db2fe;
+  }
+  100% {
+      transform: rotate(0deg);
+      border: 3px solid #2db2fe;
+      filter: drop-shadow(0 0 20px #2db2fe);
+  }
+}
+@keyframes animate3 {
+  0% {
+    transform: rotate(360deg);
+    border: 3px solid #f75d73;
+  }
+  100% {
+      transform: rotate(0deg);
+      border: 3px solid #f75d73;
+      filter: drop-shadow(0 0 20px #f75d73);
+  }
+}
+
+/************************** Ring Animation CSS End */
+
+
+// common design
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+
+  a {
+    padding: 0;
+  }
+
+  & + h1 {
+    // margin-bottom: 0;
+    text-align: center;
+  }
+
+  svg {
+    font-size: 24px;
+    outline: 1px solid #ccc;
+    border-radius: 50%;
+    outline-offset: 4px;
+    fill: #3d3d3d;
+  }
+}
